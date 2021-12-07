@@ -12,3 +12,5 @@ Get IRL style flight strips for flights arriving or departing Helsinki Airport (
 - webbrowser
 
 
+#### Known problems:
+- Result loses CSS styling when trying to print SVG from browser.
