@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600;700&family=Source+Code+Pro:wght@400;600&display=swap');
+
+svg {
+  font-family: IBM Plex Mono, monospace;
+}
+
+.largebold {
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: bolder;
+}
+
+.normal {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: bold;
+}
