@@ -24,13 +24,13 @@ class Aircraft:
         self.remarks = remarks[0:65]
         self.time = time
 
-        if alt[0:2] == "FL":                    # (1)
+        if alt[0:2] == "FL":        # (1)
             alt = alt[2:] * 100
         if int(alt) > 4999:
             self.alt = "F" + alt[0:3]
         else:
             self.alt = "A" + "0" + alt[0:2]
-        if dest == "EFHK":                      # (2)
+        if dest == "EFHK":          # (2)
             if "/" in route[-11:] and len(route) >= 11 and frules == "I":
                 self.sidstar = route[-11:].split("/")[0]
                 self.rwy = route[-11:].split("/")[1]

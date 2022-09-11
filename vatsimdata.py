@@ -1,20 +1,22 @@
 from aircraft import Aircraft
 from urllib.request import urlopen
 import json
+import sys
 
-url = 'https://data.vatsim.net/v3/vatsim-data.json'
+try:
+    url = 'https://data.vatsim.net/v3/vatsim-data.json'
+    # Store the responses
+    response = urlopen(url)
+    response2 = open('airlines.json', 'r')
 
-# Store the responses
-response = urlopen(url)
-response2 = open('airlines.json', 'r')
-
-# Read the JSON's
-data = json.loads(response.read())
-data2 = json.loads(response2.read())
+    # Read the JSON's
+    data = json.loads(response.read())
+    data2 = json.loads(response2.read())
+except:
+    print("\nUnable to fetch json data.")
+    sys.exit(1)
 
 # Define data extraction
-
-
 def get_data():
     pilots = data['pilots']
     phonetic = data2['phonetic']
@@ -26,11 +28,12 @@ def get_data():
     else:
         x = 'departure'
 
+    # Prepare an empty list
     strip = []
     for pilot in pilots:
         if pilot['flight_plan'] == None:
             continue
-        # Try to get phonetic callsign from the airlines.json and add it to a variable.
+        # Try to get phonetic callsign from the airlines.json and add it to a variable
         # If it's not in the database, then add an empty string
         if pilot['flight_plan'][x] == "EFHK":
             try:
